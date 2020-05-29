@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta content="width=device-width,initial-scale=1,maximum-scale=1.2,user-scalable=0" name=viewport><title></title><link rel=icon sizes=any href=/static/kunlunicon.png type=image/png><script src=https://res.wx.qq.com/open/js/jweixin-1.4.0.js></script><script src=/static/exif.js type=text/javascript charset=utf-8></script><link rel=stylesheet type=text/css href=/static/base.css><link rel=stylesheet type=text/css href=/static/iconfont.css><script type=text/javascript>//兼容怪异手机修改webview默认font大小导致的rem与fontsize不对等的情况
+	  	docElementFontSize = document.documentElement.style.fontSize;
+			//html 最终的 font-size
+			finalDocElementFontSize = window.getComputedStyle(window.document.documentElement).getPropertyValue("font-size");
+			//计算最终html font-size
+			function modifileRootRem () {
+			    var root = window.document.documentElement;
+			    var fontSize = parseFloat(root.style.fontSize);
+			    var finalFontSize = parseFloat(window.getComputedStyle(root).getPropertyValue("font-size"));
+			    if(finalFontSize === fontSize) return;
+			    root.style.fontSize = fontSize+(fontSize-finalFontSize) + "px";
+			}
+			if(typeof window.onload === 'function'){
+			    var oldFun = window.onload;
+			    window.onload = function(){
+			        oldFun();
+			        modifileRootRem();
+			    }
+			}else{
+			    window.onload = modifileRootRem;
+			}</script><link href=/static/css/app.c95149750645870275c96340bdaeba51.css?b441aeafc08769b792ba rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js?b441aeafc08769b792ba></script><script type=text/javascript src=/static/js/vendor.19beee77dbfafad926c0.js?b441aeafc08769b792ba></script><script type=text/javascript src=/static/js/app.5b014bec36b6c51a9216.js?b441aeafc08769b792ba></script></body></html>
